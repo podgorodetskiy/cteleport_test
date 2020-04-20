@@ -19,4 +19,41 @@
         android:layout_height="match_parent"
         local:layout_behavior="@string/appbar_scrolling_view_behavior"
         local:MvxBind="ItemsSource Items"/>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        local:MvxBind="Visible ShowError">
+        <TextView
+            android:id="@+id/error_text"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="18dp"
+            android:textAlignment="gravity"
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            local:layout_constraintVertical_bias="0.5"
+            local:layout_constraintWidth_default="wrap"
+            local:layout_constraintHeight_default="wrap"
+            local:layout_constraintTop_toTopOf="parent"
+            local:layout_constraintBottom_toBottomOf="parent"
+            local:layout_constraintLeft_toLeftOf="parent"
+            local:layout_constraintRight_toRightOf="parent"
+            local:MvxBind="Text ErrorMessage"/>
+        <Button
+            android:text="@string/reload"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            local:layout_constraintWidth_default="wrap"
+            local:layout_constraintHeight_default="wrap"
+            local:layout_constraintTop_toBottomOf="@id/error_text"
+            local:layout_constraintLeft_toLeftOf="parent"
+            local:layout_constraintRight_toRightOf="parent"
+            local:MvxBind="Click ReloadCommand"/>
+    </android.support.constraint.ConstraintLayout>
+    <include layout="@layout/loading_view"/>
 </android.support.design.widget.CoordinatorLayout>

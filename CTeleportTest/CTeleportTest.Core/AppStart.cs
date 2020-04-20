@@ -1,4 +1,7 @@
-﻿using MvvmCross.ViewModels;
+﻿using System.Threading.Tasks;
+using CTeleportTest.Core.ViewModels.Bookings;
+using MvvmCross.Navigation;
+using MvvmCross.ViewModels;
 
 namespace CTeleportTest.Core
 {
@@ -12,7 +15,7 @@ namespace CTeleportTest.Core
 
         protected override Task NavigateToFirstViewModel(object hint = null)
         {
-            return NavigationService.Navigate<LoginViewModel>();
+            return NavigationService.Navigate<BookingsViewModel>();
         }
     }
 }

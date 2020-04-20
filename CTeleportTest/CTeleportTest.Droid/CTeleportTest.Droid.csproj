@@ -41,27 +41,25 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MvvmCross" Version="5.2.1" />
-    <PackageReference Include="MvvmCross.Binding" Version="5.2.1" />
-    <PackageReference Include="MvvmCross.Core" Version="5.2.1" />
-    <PackageReference Include="MvvmCross.Platform" Version="5.2.1" />
-    <PackageReference Include="MvvmCross.Droid.Support.Core.UI" Version="5.2.1" />
-    <PackageReference Include="MvvmCross.Droid.Support.Fragment" Version="5.2.1" />
-    <PackageReference Include="MvvmCross.Droid.Support.V7.AppCompat" Version="5.2.1" />
-    <PackageReference Include="MvvmCross.Droid.Support.V7.RecyclerView" Version="5.2.1" />
-    <PackageReference Include="Xamarin.Android.Support.Animated.Vector.Drawable" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.Annotations" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.Compat" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.Core.UI" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.Design" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.Fragment" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.Transition" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Android.Support.Vector.Drawable" Version="25.4.0.2" />
-    <PackageReference Include="Xamarin.Build.Download" Version="0.4.7" />
+    <PackageReference Include="MvvmCross" Version="6.4.2" />
+    <PackageReference Include="MvvmCross.Droid.Support.Core.UI" Version="6.4.2" />
+    <PackageReference Include="MvvmCross.Droid.Support.Fragment" Version="6.4.2" />
+    <PackageReference Include="MvvmCross.Droid.Support.V7.AppCompat" Version="6.4.2" />
+    <PackageReference Include="MvvmCross.Droid.Support.V7.RecyclerView" Version="6.4.2" />
+    <PackageReference Include="Xamarin.Android.Support.Animated.Vector.Drawable" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Annotations" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Compat" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Constraint.Layout" Version="1.1.2" />
+    <PackageReference Include="Xamarin.Android.Support.Core.UI" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Fragment" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Transition" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.Vector.Drawable" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -79,19 +77,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable-hdpi\" />
-    <Folder Include="Resources\drawable-mdpi\" />
-    <Folder Include="Resources\drawable-xhdpi\" />
-    <Folder Include="Resources\drawable-xxhdpi\" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splash.png" />
+    <AndroidResource Include="Resources\drawable-v24\logo.xml" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable\both_ways.xml" />
+    <AndroidResource Include="Resources\drawable\one_way.xml" />
+    <AndroidResource Include="Resources\drawable\progress_bar.xml" />
+    <AndroidResource Include="Resources\drawable\splash_bg.xml" />
+    <AndroidResource Include="Resources\layout\item_booking.axml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\item_booking_group.axml" />
+    <AndroidResource Include="Resources\layout\loading_view.axml" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\layout\FirstView.axml" />
+    <AndroidResource Include="Resources\layout\BookingsView.axml" />
     <AndroidResource Include="Resources\layout\SplashScreen.axml" />
     <AndroidResource Include="Resources\layout\toolbar.axml" />
     <AndroidResource Include="Resources\values\arrays.xml" />
@@ -108,12 +111,12 @@
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DebugTrace.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\FirstView.cs" />
+    <Compile Include="TemplateSelectors\TypeTemplateSelector.cs" />
+    <Compile Include="Views\BookingsView.cs" />
     <Compile Include="Views\BaseView.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
   </ItemGroup>

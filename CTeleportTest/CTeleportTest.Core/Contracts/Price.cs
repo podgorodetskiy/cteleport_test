@@ -1,3 +1,4 @@
+using CTeleportTest.Core.Contracts.Enums;
 using Newtonsoft.Json;
 
 namespace CTeleportTest.Core.Contracts

@@ -1,23 +1,19 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using CTeleportTest.Core.Api;
-using CTeleportTest.Core.Contracts;
 using CTeleportTest.Core.Services.Interfaces;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using Refit;
 
-namespace CTeleportTest.Core.ViewModels
+namespace CTeleportTest.Core.ViewModels.Bookings
 {
     public class BookingsViewModel : MvxViewModel
     {
         private readonly IBookingsService _bookingsService;
         
         private MvxObservableCollection<object> _items = new MvxObservableCollection<object>();
-        private bool _isBookingsEmpty = true;
         private bool _showError;
         private string _errorMessage;
         private bool _isLoading;
@@ -26,12 +22,6 @@ namespace CTeleportTest.Core.ViewModels
         public BookingsViewModel(IBookingsService bookingsService)
         {
             _bookingsService = bookingsService;
-        }
-        
-        public bool IsBookingsEmpty
-        {
-            get => _isBookingsEmpty;
-            set { this.RaiseAndSetIfChanged(ref _isBookingsEmpty, value, () => IsBookingsEmpty); }
         }
 
         public bool ShowError
@@ -127,66 +117,6 @@ namespace CTeleportTest.Core.ViewModels
         {
             ShowError = false;
             CreateLoadBookingsTask();
-        }
-
-        public class BookingGroup
-        {
-            private readonly string _vesselName;
-            private readonly DateTimeOffset? _crewChangeDate;
-
-            public BookingGroup(string vesselName, string crewChangeAirport, DateTimeOffset? crewChangeDate)
-            {
-                _vesselName = vesselName;
-                _crewChangeDate = crewChangeDate;
-                CrewChangeAirport = crewChangeAirport;
-            }
-            
-            public string GroupTitle => _vesselName ?? "OFFICE STAFF";
-            
-            public string CrewChangeAirport { get; set; }
-            
-            public string CrewChangeDateFormatted => _crewChangeDate?.ToString("d/M");
-        }
-
-        public class BookingItem
-        {
-            private readonly Booking _booking;
-
-            public BookingItem(Booking booking)
-            {
-                _booking = booking;
-                GenerateFields();
-            }
-
-            public string Name { get; private set; }
-            public string Origin { get; private set; }
-            public string Destination { get; private set; }
-            public string Terms { get; private set; }
-            public bool BothWays { get; private set; }
-            
-            private void GenerateFields()
-            {
-                Name = _booking.PaxName;
-                
-                if (_booking.Legs != null && _booking.Legs.Any())
-                {
-                    BothWays = _booking.Legs.Count > 1;
-                    var firstLeg = _booking.Legs.OrderBy(x => x.Departure).FirstOrDefault();
-                    Origin = firstLeg?.Origin;
-                    Destination = firstLeg?.Destination;
-                }
-                
-                var termsList = new List<Enum>
-                {
-                    _booking.State,
-                    _booking.Terms?.FareType,
-                    _booking.Terms?.Conditions
-                }
-                .Where(x=> x != null)
-                .Select(y => y.ToString());
-                
-                Terms = string.Join(", ", termsList);
-            }
         }
     }
 }

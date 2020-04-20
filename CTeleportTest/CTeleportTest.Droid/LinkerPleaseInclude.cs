@@ -7,8 +7,6 @@ using MvvmCross.Binding.BindingContext;
 
 namespace CTeleportTest.Droid
 {
-    // This class is never actually executed, but when Xamarin linking is enabled it does how to ensure types and properties
-    // are preserved in the deployed app
     public class LinkerPleaseInclude
     {
         public void Include(Button button)
@@ -82,10 +80,11 @@ namespace CTeleportTest.Droid
             command.CanExecuteChanged += (s, e) => { if (command.CanExecute(null)) command.Execute(null); };
         }
 
-        public void Include(MvvmCross.Platform.IoC.MvxPropertyInjector injector)
+        public void Include(MvvmCross.IoC.MvxPropertyInjector injector)
         {
-            injector = new MvvmCross.Platform.IoC.MvxPropertyInjector();
+            injector = new MvvmCross.IoC.MvxPropertyInjector();
         }
+
         public void Include(System.ComponentModel.INotifyPropertyChanged changed)
         {
             changed.PropertyChanged += (sender, e) =>

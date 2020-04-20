@@ -5,40 +5,94 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:background="#f8f8f8">
+    android:background="#ffffff">
     <TextView
-        android:id="@+id/vessel_name"
+        android:id="@+id/name"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
         local:layout_constraintWidth_default="spread"
         local:layout_constraintHeight_default="wrap"
         local:layout_constraintTop_toTopOf="parent"
+        local:layout_constraintLeft_toLeftOf="parent"
+        local:layout_constraintRight_toRightOf="parent"
+        local:MvxBind="Text Name"/>
+    <TextView
+        android:id="@+id/origin"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="12dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="6dp"
+        local:layout_constraintWidth_default="wrap"
+        local:layout_constraintHeight_default="wrap"
+        local:layout_constraintTop_toBottomOf="@id/name"
+        local:layout_constraintLeft_toLeftOf="@id/name"
+        local:MvxBind="Text Origin"/>
+    <FrameLayout
+        android:id="@+id/way"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginLeft="2dp"
+        local:layout_constraintWidth_default="wrap"
+        local:layout_constraintHeight_default="wrap"
+        local:layout_constraintTop_toTopOf="@id/origin"
+        local:layout_constraintBottom_toBottomOf="@id/origin"
+        local:layout_constraintLeft_toRightOf="@id/origin">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/both_ways"
+            local:MvxBind="Visible BothWays"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/one_way"
+            local:MvxBind="Hidden BothWays"/>
+    </FrameLayout>
+    <TextView
+        android:id="@+id/destination"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="12dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="2dp"
+        local:layout_constraintWidth_default="wrap"
+        local:layout_constraintHeight_default="wrap"
+        local:layout_constraintTop_toTopOf="@id/origin"
+        local:layout_constraintBottom_toBottomOf="@id/origin"
+        local:layout_constraintLeft_toRightOf="@id/way"
+        local:MvxBind="Text Destination"/>
+    <TextView
+        android:id="@+id/terms"
+        android:fontFamily="sans-serif"
+        android:textSize="12dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="16dp"
+        local:layout_constraintWidth_default="spread"
+        local:layout_constraintHeight_default="wrap"
+        local:layout_constraintTop_toBottomOf="@id/origin"
+        local:layout_constraintBottom_toTopOf="@id/separator"
+        local:layout_constraintLeft_toLeftOf="@id/origin"
+        local:layout_constraintRight_toRightOf="parent"
+        local:MvxBind="Text Terms"/>
+    <View
+        android:id="@+id/separator"
+        android:background="#e8e8e8"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        local:layout_constraintWidth_default="spread"
+        local:layout_constraintHeight_default="wrap"
         local:layout_constraintBottom_toBottomOf="parent"
         local:layout_constraintLeft_toLeftOf="parent"
-        local:layout_constraintRight_toLeftOf="@id/change_airport"
-        local:MvxBind="Text GroupTitle"/>
-    <TextView
-        android:id="@+id/change_airport"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginRight="12dp"
-        local:layout_constraintWidth_default="wrap"
-        local:layout_constraintHeight_default="wrap"
-        local:layout_constraintTop_toTopOf="parent"
-        local:layout_constraintBottom_toBottomOf="parent"
-        local:layout_constraintRight_toLeftOf="@id/change_date"
-        local:MvxBind="Text CrewChangeAirport"/>
-    <TextView
-        android:id="@+id/change_date"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginRight="12dp"
-        local:layout_constraintWidth_default="wrap"
-        local:layout_constraintHeight_default="wrap"
-        local:layout_constraintTop_toTopOf="parent"
-        local:layout_constraintBottom_toBottomOf="parent"
-        local:layout_constraintRight_toRightOf="parent"
-        local:MvxBind="Text CrewChangeDateFormatted"/>
+        local:layout_constraintRight_toRightOf="parent"/>
 </android.support.constraints.ConstraintLayout>

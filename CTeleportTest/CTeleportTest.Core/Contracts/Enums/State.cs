@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace CTeleportTest.Core.Contracts
+namespace CTeleportTest.Core.Contracts.Enums
 {
     public enum State
     {

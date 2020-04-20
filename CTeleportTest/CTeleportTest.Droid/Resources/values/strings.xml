@@ -2,4 +2,6 @@
 <resources>
     <string name="VersionName">1.0</string>
     <string name="ApplicationName">CTeleportTest</string>
+    
+    <string name="reload">Reload</string>
 </resources>

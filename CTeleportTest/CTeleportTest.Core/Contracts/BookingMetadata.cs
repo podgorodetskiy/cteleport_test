@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CTeleportTest.Core.Contracts.Enums;
 using Newtonsoft.Json;
 
 namespace CTeleportTest.Core.Contracts
@@ -13,7 +14,7 @@ namespace CTeleportTest.Core.Contracts
         public string VesselName { get; set; }
 
         [JsonProperty("vessel_flag", NullValueHandling = NullValueHandling.Ignore)]
-        public VesselFlag? VesselFlag { get; set; }
+        public string VesselFlag { get; set; }
 
         [JsonProperty("crew_change_member", NullValueHandling = NullValueHandling.Ignore)]
         public CrewChangeMember? CrewChangeMember { get; set; }

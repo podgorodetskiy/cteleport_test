@@ -1,8 +1,9 @@
-using MvvmCross.Platform.IoC;
+using MvvmCross.IoC;
+using MvvmCross.ViewModels;
 
 namespace CTeleportTest.Core
 {
-    public class App : MvvmCross.Core.ViewModels.MvxApplication
+    public class App : MvxApplication
     {
         public override void Initialize()
         {
@@ -11,7 +12,7 @@ namespace CTeleportTest.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            RegisterNavigationServiceAppStart<ViewModels.FirstViewModel>();
+            RegisterCustomAppStart<AppStart>();
         }
     }
 }

@@ -1,24 +1,24 @@
-using Android.Content;
-using MvvmCross.Core.ViewModels;
+using System.Collections.Generic;
+using System.Reflection;
 using MvvmCross.Droid.Support.V7.AppCompat;
-using MvvmCross.Platform.Platform;
+using MvvmCross.Droid.Support.V7.RecyclerView;
+using MvvmCross.ViewModels;
 
 namespace CTeleportTest.Droid
 {
     public class Setup : MvxAppCompatSetup
     {
-        public Setup(Context applicationContext) : base(applicationContext)
-        {
-        }
-
         protected override IMvxApplication CreateApp()
         {
             return new Core.App();
         }
-
-        protected override IMvxTrace CreateDebugTrace()
+        
+        protected override IEnumerable<Assembly> AndroidViewAssemblies => new List<Assembly>(base.AndroidViewAssemblies)
         {
-            return new DebugTrace();
-        }
+            
+            typeof(Android.Support.Constraints.ConstraintLayout).Assembly,
+            typeof(MvxRecyclerView).Assembly,
+            typeof(MvxRecyclerViewHolder).Assembly
+        };
     }
 }

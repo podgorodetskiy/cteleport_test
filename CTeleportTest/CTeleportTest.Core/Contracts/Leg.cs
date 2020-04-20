@@ -1,4 +1,6 @@
+using System;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace CTeleportTest.Core.Contracts
 {
@@ -11,10 +13,12 @@ namespace CTeleportTest.Core.Contracts
         public string Destination { get; set; }
 
         [JsonProperty("departure", NullValueHandling = NullValueHandling.Ignore)]
-        public long? Departure { get; set; }
+        [JsonConverter(typeof(UnixDateTimeConverter))]
+        public DateTime? Departure { get; set; }
 
         [JsonProperty("arrival", NullValueHandling = NullValueHandling.Ignore)]
-        public long? Arrival { get; set; }
+        [JsonConverter(typeof(UnixDateTimeConverter))]
+        public DateTime? Arrival { get; set; }
 
         [JsonProperty("is_direct", NullValueHandling = NullValueHandling.Ignore)]
         public bool? IsDirect { get; set; }
