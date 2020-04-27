@@ -4,4 +4,6 @@
     <string name="ApplicationName">CTeleportTest</string>
     
     <string name="reload">Reload</string>
+    <string name="sort_menu_title">Sort</string>
+    <string name="search_menu_title">Search</string>
 </resources>

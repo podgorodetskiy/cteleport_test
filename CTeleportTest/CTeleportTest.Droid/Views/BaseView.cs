@@ -1,11 +1,13 @@
 using Android.OS;
 using Android.Support.V7.Widget;
 using MvvmCross.Droid.Support.V7.AppCompat;
+using MvvmCross.ViewModels;
 
 namespace CTeleportTest.Droid.Views
 {
-    public abstract class BaseView : MvxAppCompatActivity
+    public abstract class BaseView<TViewModel> : MvxAppCompatActivity where TViewModel : class, IMvxViewModel
     {
+        public new TViewModel ViewModel => base.ViewModel as TViewModel;
         protected Toolbar Toolbar { get; set; }
 
         protected override void OnCreate(Bundle bundle)
