@@ -151,7 +151,7 @@ namespace CTeleportTest.Core.ViewModels.Bookings
                 {
                     x.Metadata.VesselName,
                     x.Metadata.CrewChangeAirport,
-                    CrewChangeDate = x.Metadata.CrewChangeDate ?? x.DepartureAt
+                    CrewChangeDate = x.Metadata.CrewChangeDate?.Date ?? x.DepartureAt?.Date
                 }).SelectMany(g =>
                 {
                     var flattenedList = new List<object>
